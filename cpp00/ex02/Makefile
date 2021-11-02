@@ -15,7 +15,10 @@ DIR_O	=	obj
 
 SRCS		:= megaphone.cpp
 
-OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
+OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
+
+SUB_DIR_O := $(shell find $(DIR_S) -type d)
+SUB_DIR_O := $(SUB_DIR_O:%=$(DIR_O)/%)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
 DEPS	=	$(shell find $(HEADERS) -name *.hpp)
@@ -26,8 +29,9 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 RM		=	rm -f
 
-$(DIR_O)/%.o: %.cpp
+$(DIR_O)/%.o: %.c
 			@mkdir -p $(DIR_O)
+			@mkdir -p $(SUB_DIR_O)
 			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(NAME):	$(DEPS) $(OBJS)
@@ -42,7 +46,6 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
-			$(RM) -d $(DIR_O)
 			printf "$(WHT)[$(YEL)$(NAME) BINARIES REMOVED$(WHT)]\n"
 
 re:			fclean all

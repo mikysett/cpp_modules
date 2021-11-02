@@ -7,22 +7,22 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	megaphone
+NAME	=	myPhoneBook
 
 DIR_S	=	
 
 DIR_O	=	obj
 
-SRCS		:= megaphone.cpp
+SRCS		:= main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	$(shell find $(HEADERS) -name *.hpp)
+DEPS	=	$(shell find *.hpp)
 
 CC		=	clang++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -std=c++98 -fsanitize=address
 
 RM		=	rm -f
 
