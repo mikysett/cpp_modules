@@ -7,16 +7,16 @@ int	main(void)
 	std::string command;
 	PhoneBook myPhoneBook;
 	
-	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
-	std::cin >> command;
 	while (command != "EXIT")
 	{
+		std::cout << "Enter a command (ADD, SEARCH, EXIT)" << std::endl;
+		std::cin >> command;
 		if (command == "ADD")
 			myPhoneBook.addContact();
 		else if (command == "SEARCH")
 			myPhoneBook.searchContact();
-		else
+		else if (command != "EXIT")
 			std::cout << "Invalid command, try again" << std::endl;
-		std::cin >> command;
 	}
+	return (0);
 }

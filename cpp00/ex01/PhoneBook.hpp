@@ -1,5 +1,7 @@
 #ifndef PHONE_BOOK_HPP
 # define PHONE_BOOK_HPP
+# include <iostream>
+# include <iomanip>
 # include "Contact.hpp"
 
 # define MAX_CONTACTS 8
