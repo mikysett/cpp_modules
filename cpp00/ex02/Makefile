@@ -22,7 +22,7 @@ DEPS	=	$(shell find *.hpp)
 
 CC		=	clang++
 
-CFLAGS	=	-Wall -Wextra -std=c++98 -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 RM		=	rm -f
 

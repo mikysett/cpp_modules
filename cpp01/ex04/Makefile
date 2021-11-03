@@ -7,22 +7,22 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	myPhoneBook
+NAME	=	brain
+
+SRCS	:=	main.cpp
 
 DIR_S	=	
 
 DIR_O	=	obj
 
-SRCS		:= main.cpp PhoneBook.cpp Contact.cpp
-
 OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	$(shell find *.hpp)
+DEPS	=	# $(shell find *.hpp)
 
 CC		=	clang++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 RM		=	rm -f
 
@@ -48,7 +48,7 @@ fclean:		clean
 re:			fclean all
 
 debug:		INCLUDES += -DDEBUG_MODE
-debug:		CFLAGS += -g -fsanitize=address
+debug:		CFLAGS = -Wall -Wextra -g -fsanitize=address
 debug:		clean
 debug:		all
 
