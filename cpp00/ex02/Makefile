@@ -7,31 +7,27 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	megaphone
+NAME	=	account
 
 DIR_S	=	
 
 DIR_O	=	obj
 
-SRCS		:= megaphone.cpp
+SRCS		:= Account.cpp tests.cpp
 
-OBJS		:= $(SRCS:%.c=$(DIR_O)/%.o)
-
-SUB_DIR_O := $(shell find $(DIR_S) -type d)
-SUB_DIR_O := $(SUB_DIR_O:%=$(DIR_O)/%)
+OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	$(shell find $(HEADERS) -name *.hpp)
+DEPS	=	$(shell find *.hpp)
 
 CC		=	clang++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -std=c++98 -fsanitize=address
 
 RM		=	rm -f
 
-$(DIR_O)/%.o: %.c
+$(DIR_O)/%.o: %.cpp
 			@mkdir -p $(DIR_O)
-			@mkdir -p $(SUB_DIR_O)
 			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(NAME):	$(DEPS) $(OBJS)
@@ -46,6 +42,7 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) -d $(DIR_O)
 			printf "$(WHT)[$(YEL)$(NAME) BINARIES REMOVED$(WHT)]\n"
 
 re:			fclean all
