@@ -7,9 +7,9 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	brain
+NAME	=	unnecessary_violence
 
-SRCS	:=	main.cpp
+SRCS	:=	HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 
 DIR_S	=	
 
@@ -18,7 +18,7 @@ DIR_O	=	obj
 OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	# $(shell find *.hpp)
+DEPS	=	HumanA.hpp HumanB.hpp Weapon.hpp
 
 CC		=	clang++
 
