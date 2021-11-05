@@ -29,6 +29,7 @@ void Karen::error(void)
 void Karen::complain(std::string level)
 {
 	std::string msgsFirstLetters = "DIWE";
+	std::size_t index = std::string::npos;
 	void (Karen::*messages[4])(void)
 		= {
 			&Karen::debug,
@@ -36,8 +37,24 @@ void Karen::complain(std::string level)
 			&Karen::warning,
 			&Karen::error
 		};
-	std::size_t index = msgsFirstLetters.find(level.substr(0, 1));
 	
-	if (index != std::string::npos)
-		(this->*messages[index])();
+	if (level == "DEBUG"
+		|| level == "INFO"
+		|| level == "WARNING"
+		|| level == "ERROR")
+		index = msgsFirstLetters.find(level.substr(0, 1));
+	switch (index)
+	{
+	case 0:
+		(this->*messages[0])();
+	case 1:
+		(this->*messages[1])();
+	case 2:
+		(this->*messages[2])();
+	case 3:
+		(this->*messages[3])();
+		break ;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }
