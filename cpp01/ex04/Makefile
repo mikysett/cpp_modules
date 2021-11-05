@@ -7,7 +7,7 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	brain
+NAME	=	replace
 
 SRCS	:=	main.cpp
 
