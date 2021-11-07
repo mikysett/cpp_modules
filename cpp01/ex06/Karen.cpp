@@ -29,7 +29,7 @@ void Karen::error(void)
 void Karen::complain(std::string level)
 {
 	std::string msgsFirstLetters = "DIWE";
-	std::size_t index = std::string::npos;
+	std::size_t index;
 	void (Karen::*messages[4])(void)
 		= {
 			&Karen::debug,
@@ -43,6 +43,8 @@ void Karen::complain(std::string level)
 		|| level == "WARNING"
 		|| level == "ERROR")
 		index = msgsFirstLetters.find(level.substr(0, 1));
+	else
+		index = std::string::npos;
 	switch (index)
 	{
 	case 0:
