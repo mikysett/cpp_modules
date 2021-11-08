@@ -7,9 +7,9 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	karenFilter
+NAME	=	fixed
 
-SRCS	:=	main.cpp Karen.cpp
+SRCS	:=	main.cpp Fixed.cpp
 
 DIR_S	=	
 
@@ -18,7 +18,7 @@ DIR_O	=	obj
 OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	Karen.hpp
+DEPS	=	Fixed.hpp
 
 CC		=	clang++
 
