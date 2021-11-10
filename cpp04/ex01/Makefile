@@ -9,7 +9,13 @@ GRN	= \033[0;32m
 
 NAME	=	animal
 
-SRCS	:=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS	:=	main.cpp \
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+			Brain.cpp
 
 DIR_S	=	
 
@@ -18,7 +24,12 @@ DIR_O	=	obj
 OBJS		:= $(SRCS:%.cpp=$(DIR_O)/%.o)
 
 # Using wildcards: $(shell find $(HEADERS) -name *.h)
-DEPS	=	Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+DEPS	=	Animal.hpp \
+			Cat.hpp \
+			Dog.hpp \
+			WrongAnimal.hpp \
+			WrongCat.hpp \
+			Brain.hpp
 
 CC		=	clang++
 
