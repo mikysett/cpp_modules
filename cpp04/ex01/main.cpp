@@ -6,30 +6,26 @@
 
 int	main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* theDog = new Dog();
-	const Animal* theCat = new Cat();
+	int size = 10;
+	const Animal* animals[size];
 
-	std::cout << theDog->getType() << " " << std::endl;
-	std::cout << theCat->getType() << " " << std::endl;
-	theDog->makeSound();
-	theCat->makeSound(); //will output the cat sound!
-	meta->makeSound();
-
-	delete meta;
-	delete theDog;
-	delete theCat;
-
+	std::cout << "Initialize the array" << std::endl;
+	for (int i = 0; i < size; i++)
+		i % 2 == 0 ? animals[i] = new Dog : animals[i] = new Cat;
 	std::cout << std::endl;
-
-	const WrongAnimal* theWrongAnimal = new WrongAnimal();
-	const WrongAnimal* theWrongCat = new WrongCat();
-
-	std::cout << theWrongCat->getType() << " " << std::endl;
-	theWrongCat->makeSound();
-	theWrongAnimal->makeSound();
-
-	delete theWrongAnimal;
-	delete theWrongCat;
+	std::cout << "Make 3 deep copies" << std::endl;
+	if (1)
+	{
+		Dog dog1;
+		Cat cat1;
+		Dog dogCopy1 = dog1;
+		Cat catCopy2;
+		catCopy2 = cat1;
+		Dog dogCopy3 = dog1;
+	}
+	std::cout << std::endl;
+	std::cout << "Destroy the array" << std::endl;
+	for (int i = 0; i < size; i++)
+		delete animals[i];
 	return (0);
 }
