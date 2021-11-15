@@ -5,20 +5,6 @@ Cure::Cure()
 	type = "cure";
 }
 
-Cure::Cure( const Cure &oldCure )
-{
-	type = oldCure.type;
-}
-
-Cure& Cure::operator= ( const Cure &oldCure )
-{
-	type = oldCure.type;
-	return (*this);
-}
-
-Cure::~Cure()
-{}
-
 AMateria* Cure::clone() const
 {
 	return (new Cure(*this));
