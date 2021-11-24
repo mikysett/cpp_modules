@@ -1,0 +1,17 @@
+#ifndef B_HPP
+# define B_HPP
+# include <iostream>
+# include "Base.hpp"
+
+class B : public Base
+{
+private:
+	std::string name;
+public:
+	B();
+	B( const B &oldB );
+	B& operator= ( const B &oldB );
+	~B();
+};
+
+#endif
