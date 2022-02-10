@@ -82,7 +82,7 @@ bool Fixed::operator== ( const Fixed &otherPoint )
 
 bool Fixed::operator!= ( const Fixed &otherPoint )
 {
-	return (nb == otherPoint.nb);
+	return (nb != otherPoint.nb);
 }
 
 
