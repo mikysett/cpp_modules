@@ -7,9 +7,9 @@ YEL	= \033[0;33m
 BLU	= \033[0;34m
 GRN	= \033[0;32m
 
-NAME	=	bsq
+NAME	=	bsp
 
-SRCS	:=	main.cpp bsq.cpp Fixed.cpp Point.cpp
+SRCS	:=	main.cpp bsp.cpp Fixed.cpp Point.cpp
 
 DIR_S	=	
 

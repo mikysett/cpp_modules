@@ -1,5 +1,5 @@
 #include <iostream>
-#include "bsq.hpp"
+#include "bsp.hpp"
 #include "Point.hpp"
 
 // Those two testing functions are taken from dda_silv repo (thanks make ;))
