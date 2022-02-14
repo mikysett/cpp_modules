@@ -28,6 +28,10 @@ int	main(void)
 	std::cout << theWrongCat->getType() << " " << std::endl;
 	theWrongCat->makeSound();
 	theWrongAnimal->makeSound();
+	
+	const WrongCat wrongCatStatic = WrongCat();
+	std::cout << "static wrong cat: " << std::endl;	
+	wrongCatStatic.makeSound();
 
 	delete theWrongAnimal;
 	delete theWrongCat;
