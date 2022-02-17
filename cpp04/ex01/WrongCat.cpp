@@ -23,3 +23,8 @@ WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat: Default destructor" << std::endl;
 }
+
+void WrongCat::makeSound( void ) const
+{
+	std::cout << "WrongCat sound" << std::endl;
+}
