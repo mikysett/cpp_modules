@@ -77,7 +77,6 @@ void Form::execute( const Bureaucrat& executor ) const
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
 		throw;
 	}
 }
