@@ -8,7 +8,7 @@ struct Data {
 	int age;
 };
 
-typedef unsigned long long uintptr_t;
+typedef unsigned long uintptr_t;
 
 uintptr_t serialize(const Data* ptr);
 Data* deserialize(const uintptr_t raw);
