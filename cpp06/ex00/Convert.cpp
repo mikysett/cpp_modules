@@ -184,8 +184,6 @@ std::string Convert::int_to_string(int i)
 
 void Convert::convertToFloat( const std::string& literal )
 {
-	std::stringstream streamConv(literal);
-
 	if (literal == "-inff")
 		converted.f = -1. / 0.;
 	else if (literal == "+inff")
@@ -193,7 +191,10 @@ void Convert::convertToFloat( const std::string& literal )
 	else if (literal == "nanf")
 		converted.f = std::numeric_limits<float>::quiet_NaN();
 	else
+	{
+		std::stringstream streamConv(literal.substr(0, literal.length() - 2));
 		streamConv >> converted.f;
+	}
 	conversion[T_FLOAT].status = OK;
 
 	converted.i = static_cast<int>(converted.f);
