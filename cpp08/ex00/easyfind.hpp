@@ -7,8 +7,8 @@
 # include <exception>
 # include <iostream>
 
-template <typename T, typename TContainer>
-typename TContainer::const_iterator easyfind(const TContainer& container, T toFind)
+template <typename TContainer>
+typename TContainer::const_iterator easyfind(const TContainer& container, int toFind)
 {
 	return std::find(container.begin(), container.end(), toFind);
 }
