@@ -34,6 +34,10 @@ public:
 		size = oldArray.size;
 		for (unsigned int i = 0; i < size; i++)
 			a[i] = oldArray.a[i];
+		
+		// Could be replaced by:
+		// delete[] a;
+		// a = Array(oldArray);
 	}
 
 	T& operator[] ( unsigned int pos )

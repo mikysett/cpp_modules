@@ -17,12 +17,6 @@ int	main(void)
 	return (0);
 }
 
-template<typename T, typename U> void iter(T a[], size_t size, U fn)
-{
-	for (size_t i = 0; i < size; i++)
-		fn(a[i]);
-}
-
 int theDoubleInt(int nb)
 {
 	std::cout << "nb * 2 = " << nb * 2 << std::endl;
@@ -30,12 +24,6 @@ int theDoubleInt(int nb)
 }
 
 float theDoubleFloat(float nb)
-{
-	std::cout << "nb * 2 = " << nb * 2 << std::endl;
-	return (nb * 2);
-}
-
-template<typename T> T theDoubleGen(T nb)
 {
 	std::cout << "nb * 2 = " << nb * 2 << std::endl;
 	return (nb * 2);
