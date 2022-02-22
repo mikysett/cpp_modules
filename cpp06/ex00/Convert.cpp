@@ -199,11 +199,16 @@ void Convert::convertToFloat( const std::string& literal )
 
 	converted.i = static_cast<int>(converted.f);
 	if (converted.i != static_cast<long long>(converted.f))
-		conversion[T_INT].status = IMPOSSIBLE;	
+	{
+		conversion[T_INT].status = IMPOSSIBLE;
+		conversion[T_CHAR].status = IMPOSSIBLE;
+	}
 	else
+	{
 		conversion[T_INT].status = OK;
-	converted.c = static_cast<char>(converted.f);
-	conversion[T_CHAR].status = setCharStatus(converted.c);
+		converted.c = static_cast<char>(converted.f);
+		conversion[T_CHAR].status = setCharStatus(converted.c);
+	}
 	converted.d = static_cast<double>(converted.f);
 	conversion[T_DOUBLE].status = OK;
 }
@@ -224,9 +229,16 @@ void Convert::convertToDouble( const std::string& literal )
 
 	converted.i = static_cast<int>(converted.d);
 	if (converted.i != static_cast<long long>(converted.d))
-		conversion[T_INT].status = IMPOSSIBLE;	
+	{
+		conversion[T_INT].status = IMPOSSIBLE;
+		conversion[T_CHAR].status = IMPOSSIBLE;
+	}
 	else
+	{
 		conversion[T_INT].status = OK;
+		converted.c = static_cast<char>(converted.f);
+		conversion[T_CHAR].status = setCharStatus(converted.c);
+	}
 	converted.c = static_cast<char>(converted.d);
 	conversion[T_CHAR].status = setCharStatus(converted.c);
 	converted.f = static_cast<float>(converted.d);
